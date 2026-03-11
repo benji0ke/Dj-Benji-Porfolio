@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DJ Portfolio</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#0f0f0f;
+    color:white;
+}
+
+header{
+    background:#111;
+    text-align:center;
+    padding:40px 20px;
+}
+
+header h1{
+    font-size:40px;
+}
+
+header p{
+    color:#aaa;
+}
+
+nav{
+    background:#1c1c1c;
+    text-align:center;
+    padding:10px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    font-weight:bold;
+}
+
+section{
+    padding:40px;
+    max-width:1000px;
+    margin:auto;
+}
+
+.card{
+    background:#1b1b1b;
+    padding:20px;
+    margin:20px 0;
+    border-radius:10px;
+}
+
+.genres span{
+    display:inline-block;
+    background:#333;
+    padding:8px 15px;
+    margin:5px;
+    border-radius:20px;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:#111;
+    color:#aaa;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>DJ BENJI</h1>
+<p>Versatile Event & Party DJ | Nairobi, Kenya</p>
+</header>
+
+<nav>
+<a href="#about">About</a>
+<a href="#experience">Experience</a>
+<a href="#genres">Genres</a>
+<a href="#mixes">Mixes</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+<div class="card">
+<h2>About Me</h2>
+<p>
+I am a versatile DJ with 3 years of experience performing at events and parties.
+I specialize in reading the crowd and creating energetic atmospheres with smooth
+transitions between genres.
+</p>
+</div>
+</section>
+
+<section id="experience">
+<div class="card">
+<h2>Experience</h2>
+<ul>
+<li>3 Years Event & Party DJ Experience</li>
+<li>Campus Events and Social Gatherings</li>
+<li>DJ Experience</li>
+<li>Crowd engagement and music curation</li>
+</ul>
+</div>
+</section>
+
+<section id="genres">
+<div class="card">
+<h2>Genres I Play</h2>
+<div class="genres">
+<span>Amapiano</span>
+<span>Afrobeats</span>
+<span>Hip Hop</span>
+<span>Dancehall</span>
+<span>Gengetone</span>
+<span>House</span>
+<span>Throwbacks</span>
+</div>
+</div>
+</section>
+
+<section id="mixes">
+<div class="card">
+<h2>Sample Mixes</h2>
+<p>Add your mixes from SoundCloud or Mixcloud below:</p>
+
+<iframe width="100%" height="166" scrolling="no" frameborder="no"
+src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/">
+</iframe>
+
+</div>
+</section>
+
+<section id="contact">
+<div class="card">
+<h2>Contact / Bookings</h2>
+<p>Email: benjaminwjuma@gmail.com</p>
+<p>Phone: +254 799 594 521</p>
+<p>Location: Nairobi, Kenya</p>
+</div>
+</section>
+
+<footer>
+<p>© 2026 DJ BENJI | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
