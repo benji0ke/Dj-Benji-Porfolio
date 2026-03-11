@@ -9,35 +9,67 @@
 body{
     font-family: Arial, sans-serif;
     margin:0;
-    background:#0f0f0f;
+    background:#000;
     color:white;
 }
 
 header{
-    background:#111;
+    background:#000;
     text-align:center;
     padding:40px 20px;
+    border-bottom: 3px solid #FFD700;
 }
 
 header h1{
     font-size:40px;
+    color:#FFD700;
 }
 
 header p{
-    color:#aaa;
+    color:#bbb;
 }
 
 nav{
-    background:#1c1c1c;
+    background:#000;
     text-align:center;
     padding:10px;
+    border-bottom: 2px solid #FFD700;
 }
 
 nav a{
-    color:white;
+    color:#FFD700;
     text-decoration:none;
     margin:0 15px;
     font-weight:bold;
+    transition: 0.3s;
+}
+
+nav a:hover{
+    color:white;
+    text-shadow: 0 0 10px #FFD700;
+}
+
+.breadcrumb{
+    background:#000;
+    padding:10px 40px;
+    max-width:1000px;
+    margin:auto;
+    font-size:14px;
+}
+
+.breadcrumb a{
+    color:#FFD700;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.breadcrumb a:hover{
+    text-decoration:underline;
+}
+
+.breadcrumb span{
+    color:#666;
+    margin:0 8px;
 }
 
 section{
@@ -47,25 +79,33 @@ section{
 }
 
 .card{
-    background:#1b1b1b;
+    background:#111;
     padding:20px;
     margin:20px 0;
     border-radius:10px;
+    border-left: 4px solid #FFD700;
+}
+
+.card h2{
+    color:#FFD700;
 }
 
 .genres span{
     display:inline-block;
-    background:#333;
+    background:#FFD700;
+    color:#000;
     padding:8px 15px;
     margin:5px;
     border-radius:20px;
+    font-weight:bold;
 }
 
 footer{
     text-align:center;
     padding:20px;
-    background:#111;
-    color:#aaa;
+    background:#000;
+    color:#bbb;
+    border-top: 2px solid #FFD700;
 }
 </style>
 
@@ -85,6 +125,14 @@ footer{
 <a href="#mixes">Mixes</a>
 <a href="#contact">Contact</a>
 </nav>
+
+<div class="breadcrumb">
+<a href="#home">Home</a>
+<span>/</span>
+<a href="#about">About</a>
+<span>/</span>
+<a href="#experience">Experience</a>
+</div>
 
 <section id="about">
 <div class="card">
@@ -127,11 +175,9 @@ transitions between genres.
 <section id="mixes">
 <div class="card">
 <h2>Sample Mixes</h2>
-<p>Add your mixes from SoundCloud or Mixcloud below:</p>
+<p>Check out my latest DJ mixes on YouTube:</p>
 
-<iframe width="100%" height="166" scrolling="no" frameborder="no"
-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/">
-</iframe>
+<iframe width="100%" height="400" src=UC2Xok_ttCjuhwK48zqWFrJQ frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 </div>
 </section>
