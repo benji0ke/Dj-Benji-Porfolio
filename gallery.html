@@ -123,6 +123,54 @@ section{
     font-weight: bold;
 }
 
+.video-section{
+    margin: 40px 0;
+}
+
+.video-container{
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px 0;
+    scrollbar-width: thin;
+    scrollbar-color: #FFD700 #111;
+}
+
+.video-container::-webkit-scrollbar{
+    height: 8px;
+}
+
+.video-container::-webkit-scrollbar-track{
+    background: #111;
+    border-radius: 4px;
+}
+
+.video-container::-webkit-scrollbar-thumb{
+    background: #FFD700;
+    border-radius: 4px;
+}
+
+.video-item{
+    flex: 0 0 400px;
+    background:#111;
+    border-radius:10px;
+    overflow: hidden;
+    border: 2px solid #FFD700;
+}
+
+.video-item iframe{
+    width: 100%;
+    height: 225px;
+    border: none;
+}
+
+.video-item .caption{
+    padding: 15px;
+    text-align: center;
+    color: #FFD700;
+    font-weight: bold;
+}
+
 footer{
     text-align:center;
     padding:20px;
@@ -161,36 +209,7 @@ footer{
 <h2>Event Gallery</h2>
 <p>Check out some highlights from my recent DJ performances and events.</p>
 
-<div class="gallery">
-<div class="gallery-item">
-<img src="https://via.placeholder.com/300x200/FFD700/000?text=DJ+Setup" alt="DJ Setup">
-<div class="caption">DJ Setup at Campus Event</div>
-</div>
 
-<div class="gallery-item">
-<img src="https://via.placeholder.com/300x200/FFD700/000?text=Crowd" alt="Crowd">
-<div class="caption">Energetic Crowd</div>
-</div>
-
-<div class="gallery-item">
-<img src="https://via.placeholder.com/300x200/FFD700/000?text=Party" alt="Party">
-<div class="caption">Birthday Party DJ</div>
-</div>
-
-<div class="gallery-item">
-<img src="https://via.placeholder.com/300x200/FFD700/000?text=Equipment" alt="Equipment">
-<div class="caption">Professional Equipment</div>
-</div>
-
-<div class="gallery-item">
-<img src="https://via.placeholder.com/300x200/FFD700/000?text=Performance" alt="Performance">
-<div class="caption">Live Performance</div>
-</div>
-
-<div class="gallery-item">
-<img src="https://via.placeholder.com/300x200/FFD700/000?text=Audience" alt="Audience">
-<div class="caption">Happy Audience</div>
-</div>
 </div>
 </div>
 </section>
