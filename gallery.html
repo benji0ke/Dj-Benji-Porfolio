@@ -123,6 +123,13 @@ section{
     font-weight: bold;
 }
 
+.video-gallery{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
 .video-section{
     margin: 40px 0;
 }
@@ -222,13 +229,15 @@ footer{
 <h2>Event Gallery</h2>
 <p>Check out some highlights from my recent DJ performances and events.</p>
 
-
-
-
-
+<div class="video-gallery">
 <video class="video-small" controls>
   <source src="Images/Benji-3.mp4" type="video/mp4">
 </video>
+
+<video class="video-small" controls>
+  <source src="Images/Benji-1.mp4" type="video/mp4">
+</video>
+</div>
 
 </div>
 
