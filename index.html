@@ -9,44 +9,103 @@
 body{
     font-family: Arial, sans-serif;
     margin:0;
-    background:#000;
-    color:white;
+    background: #fff;
+    color:#000;
+    position: relative;
+    margin-left: 200px;
+}
+
+body::before{
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1200&fit=crop') center/cover;
+    background-attachment: fixed;
+    backdrop-filter: blur(8px);
+    filter: blur(8px);
+    opacity: 0.3;
+    z-index: -1;
+    pointer-events: none;
 }
 
 header{
-    background:#000;
+    background: url('Images/benji.png') center/cover;
+    background-attachment: fixed;
     text-align:center;
-    padding:40px 20px;
+    padding:20px 20px;
     border-bottom: 3px solid #FFD700;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    z-index: 1;
 }
 
 header h1{
-    font-size:40px;
+    font-size:30px;
     color:#FFD700;
+    position: relative;
+    z-index: 2;
+    margin: 10px 0;
 }
 
 header p{
     color:#bbb;
+    position: relative;
+    z-index: 2;
+}
+
+.logo {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 200px;
+    height: auto;
+    z-index: 3;
 }
 
 nav{
     background:#000;
-    text-align:center;
-    padding:10px;
-    border-bottom: 2px solid #FFD700;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    border-right: 2px solid #FFD700;
+    z-index: 99;
+    overflow-y: auto;
 }
 
 nav a{
     color:#FFD700;
     text-decoration:none;
-    margin:0 15px;
+    margin: 15px 20px;
     font-weight:bold;
     transition: 0.3s;
+    padding: 10px 15px;
+    border-radius: 5px;
 }
 
 nav a:hover{
     color:white;
     text-shadow: 0 0 10px #FFD700;
+    background: rgba(255, 215, 0, 0.1);
 }
 
 .breadcrumb{
@@ -55,6 +114,7 @@ nav a:hover{
     max-width:1000px;
     margin:auto;
     font-size:14px;
+    display: none;
 }
 
 .breadcrumb a{
@@ -84,6 +144,7 @@ section{
     margin:20px 0;
     border-radius:10px;
     border-left: 4px solid #FFD700;
+    color: white;
 }
 
 .card h2{
@@ -100,6 +161,54 @@ section{
     font-weight:bold;
 }
 
+.video-gallery {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.video-small {
+    flex: 0 1 250px;
+    margin: 10px;
+    max-width: 250px;
+    height: auto;
+}
+
+.genres {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+section#mixes .card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+section#mixes .card h2, section#mixes .card p {
+    flex-basis: 100%;
+    text-align: center;
+}
+
+.video-wrapper {
+    flex: 1 1 300px;
+    margin: 10px;
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 footer{
     text-align:center;
     padding:20px;
@@ -114,6 +223,7 @@ footer{
 <body>
 
 <header>
+<img src="Images/logo.png" alt="DJ Benji Logo" class="logo">
 <h1>DJ BENJI</h1>
 <p>Versatile Event & Party DJ | Nairobi, Kenya</p>
 </header>
@@ -121,7 +231,8 @@ footer{
 <nav>
 <a href="#about">About</a>
 <a href="#experience">Experience</a>
-<a href="gallery.html">Gallery</a>
+<a href="#events">Featured Events</a>
+<a href="#gallery">Gallery</a>
 <a href="#mixes">Mixes</a>
 <a href="#contact">Contact</a>
 </nav>
@@ -138,7 +249,7 @@ footer{
 <div class="card">
 <h2>About Me</h2>
 <p>
-I am a versatile DJ with 3 years of experience performing at events and parties.
+I am a new-generation DJ with 3 years of experience performing at events and parties.
 I specialize in reading the crowd and creating energetic atmospheres with smooth
 transitions between genres.
 </p>
@@ -153,6 +264,20 @@ transitions between genres.
 <li>Campus Events and Social Gatherings</li>
 <li>DJ Experience</li>
 <li>Crowd engagement and music curation</li>
+</ul>
+</div>
+</section>
+
+<section id="events">
+<div class="card">
+<h2>Featured Events</h2>
+<p>Here are some of the featured events I've DJ'd for:</p>
+<ul>
+<li><strong>Freshers nite EASA 2020:</strong> Energetic night with a mix of Afrobeats and Hip Hop.</li>
+<li><strong>Airwave Experience 2021:</strong> Smooth transitions between genres for a memorable celebration.</li>
+<li><strong>Airwave Experience 2022:</strong> Professional setup with curated playlists.</li>
+<li><strong>Airwave Experience 2023:</strong> Engaging the crowd with a blend of Amapiano and Gengetone.</li>
+<li><strong>Resident DJ at Backyard Embakassi 2021-2023:</strong> Consistent presence at the venue, delivering high-energy performances.</li>
 </ul>
 </div>
 </section>
@@ -203,11 +328,17 @@ transitions between genres.
 <h2>Sample Mixes</h2>
 <p>YouTube Videos:</p>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/N1Euv764hME" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<div class="video-wrapper">
+<iframe src="https://www.youtube.com/embed/N1Euv764hME" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/-NmrZR3TGso" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<div class="video-wrapper">
+<iframe src="https://www.youtube.com/embed/-NmrZR3TGso" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/VKoLiXhlHNE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<div class="video-wrapper">
+<iframe src="https://www.youtube.com/embed/VKoLiXhlHNE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 </div>
 </section>
 
