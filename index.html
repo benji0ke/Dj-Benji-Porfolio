@@ -3,357 +3,286 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DJ Portfolio</title>
-
+<title>DJ Benji | Urban Sound Portfolio</title>
 <style>
-body{
-    font-family: Arial, sans-serif;
-    margin:0;
-    background: #fff;
-    color:#000;
-    position: relative;
-    margin-left: 200px;
-}
+  :root {
+    --bg: #05070b;
+    --panel: rgba(10, 14, 22, 0.88);
+    --panel-2: rgba(17, 23, 35, 0.95);
+    --line: rgba(255, 215, 0, 0.25);
+    --gold: #ffd54a;
+    --text: #f4f7fb;
+    --muted: #cdd6e4;
+  }
 
-body::before{
-    content: '';
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background:
+      radial-gradient(circle at top, rgba(255, 213, 74, 0.08), transparent 22%),
+      linear-gradient(135deg, #020406 0%, #07111d 45%, #04070b 100%);
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: "";
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1200&fit=crop') center/cover;
-    background-attachment: fixed;
-    backdrop-filter: blur(8px);
-    filter: blur(8px);
-    opacity: 0.3;
-    z-index: -1;
-    pointer-events: none;
-}
+    inset: 0;
+    background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.55)),
+      url('Images/benji.png') center/cover no-repeat;
+    opacity: 0.14;
+    filter: saturate(1.1) blur(1px);
+    z-index: -2;
+  }
 
-header{
-    background: url('Images/benji.png') center/cover;
-    background-attachment: fixed;
-    text-align:center;
-    padding:20px 20px;
-    border-bottom: 3px solid #FFD700;
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(255,255,255,0.02), transparent 30%, rgba(255,255,255,0.03));
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .topbar {
     position: sticky;
     top: 0;
-    z-index: 100;
-}
+    z-index: 50;
+    backdrop-filter: blur(12px);
+    background: rgba(3, 6, 10, 0.82);
+    border-bottom: 1px solid var(--line);
+  }
 
-header::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(5px);
-    z-index: 1;
-}
+  .topbar-inner, .wrap { width: min(1200px, calc(100% - 24px)); margin: 0 auto; }
 
-header h1{
-    font-size:30px;
-    color:#FFD700;
-    position: relative;
-    z-index: 2;
-    margin: 10px 0;
-}
+  .topbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 0; }
 
-header p{
-    color:#bbb;
-    position: relative;
-    z-index: 2;
-}
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); }
+  .brand img { width: 52px; border-radius: 12px; }
+  .brand strong { display: block; font-size: 1rem; color: var(--gold); }
+  .brand small { color: var(--muted); font-size: 0.85rem; }
 
-.logo {
-    position: absolute;
-    left: 10px;
-    top: 10px;
-    width: 200px;
-    height: auto;
-    z-index: 3;
-}
+  nav { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+  nav a {
+    text-decoration: none; color: var(--text); padding: 10px 12px; border-radius: 999px;
+    background: rgba(255,255,255,0.03); border: 1px solid transparent; transition: 0.2s;
+  }
+  nav a:hover { background: rgba(255, 213, 74, 0.08); border-color: var(--line); color: var(--gold); }
 
-nav{
-    background:#000;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 200px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    padding: 20px 0;
-    border-right: 2px solid #FFD700;
-    z-index: 99;
-    overflow-y: auto;
-}
+  .hero {
+    padding: 36px 0 14px;
+  }
 
-nav a{
-    color:#FFD700;
-    text-decoration:none;
-    margin: 15px 20px;
-    font-weight:bold;
-    transition: 0.3s;
-    padding: 10px 15px;
-    border-radius: 5px;
-}
+  .hero-card {
+    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 18px; align-items: stretch;
+  }
 
-nav a:hover{
-    color:white;
-    text-shadow: 0 0 10px #FFD700;
-    background: rgba(255, 215, 0, 0.1);
-}
+  .panel {
+    background: linear-gradient(180deg, rgba(8, 12, 20, 0.96), rgba(12, 17, 28, 0.92));
+    border: 1px solid var(--line); border-radius: 24px; padding: 22px; box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+  }
 
-.breadcrumb{
-    background:#000;
-    padding:10px 40px;
-    max-width:1000px;
-    margin:auto;
-    font-size:14px;
-    display: none;
-}
+  .eyebrow { text-transform: uppercase; letter-spacing: .28em; font-size: .78rem; color: var(--gold); }
+  h1 { font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.02; margin: 10px 0 14px; }
+  .lead { color: var(--muted); font-size: 1.03rem; line-height: 1.6; }
 
-.breadcrumb a{
-    color:#FFD700;
-    text-decoration:none;
-    font-weight:bold;
-}
+  .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .pill { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); border-radius: 999px; padding: 8px 10px; background: rgba(255,255,255,0.03); color: var(--text); font-size: .95rem; }
 
-.breadcrumb a:hover{
-    text-decoration:underline;
-}
+  .cta-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; padding: 11px 14px; border-radius: 12px;
+    text-decoration: none; font-weight: 700; border: 1px solid transparent;
+  }
+  .btn-primary { background: linear-gradient(135deg, #ffde70, #e0af00); color: #111; }
+  .btn-secondary { background: rgba(255,255,255,0.03); color: var(--text); border-color: var(--line); }
 
-.breadcrumb span{
-    color:#666;
-    margin:0 8px;
-}
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
+  .stat { background: rgba(255,255,255,0.04); border: 1px solid var(--line); border-radius: 18px; padding: 12px; }
+  .stat strong { display: block; color: var(--gold); font-size: 1.2rem; }
+  .stat span { color: var(--muted); font-size: .92rem; }
 
-section{
-    padding:40px;
-    max-width:1000px;
-    margin:auto;
-}
+  .mini-card { display: grid; gap: 10px; }
+  .mini-card .box { background: rgba(255,255,255,0.04); border: 1px solid var(--line); border-radius: 18px; padding: 12px; }
+  .mini-card h3 { margin: 0 0 6px; font-size: 1rem; color: #fff; }
+  .mini-card p { margin: 0; color: var(--muted); font-size: .95rem; line-height: 1.45; }
 
-.card{
-    background:#111;
-    padding:20px;
-    margin:20px 0;
-    border-radius:10px;
-    border-left: 4px solid #FFD700;
-    color: white;
-}
+  main { padding-bottom: 30px; }
+  section { padding: 12px 0; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 
-.card h2{
-    color:#FFD700;
-}
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 22px; padding: 18px; box-shadow: 0 14px 35px rgba(0,0,0,0.28); }
+  .card h2 { margin-top: 0; color: var(--gold); font-size: 1.35rem; }
+  .card p, .card li { color: var(--muted); line-height: 1.55; }
+  .card ul { padding-left: 18px; margin: 0; }
 
-.genres span{
-    display:inline-block;
-    background:#FFD700;
-    color:#000;
-    padding:8px 15px;
-    margin:5px;
-    border-radius:20px;
-    font-weight:bold;
-}
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { display: inline-block; background: rgba(255, 213, 74, 0.12); color: #fff7d8; border: 1px solid rgba(255, 213, 74, 0.25); border-radius: 999px; padding: 8px 10px; font-size: .95rem; }
 
-.video-gallery {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
+  .video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .video-frame video { width: 100%; border-radius: 16px; border: 1px solid var(--line); background: #000; }
 
-.video-small {
-    flex: 0 1 250px;
-    margin: 10px;
-    max-width: 250px;
-    height: auto;
-}
+  .mix-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .mix-card { background: rgba(255,255,255,0.04); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+  .mix-card img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+  .mix-card a { display: block; color: #fff; text-decoration: none; padding: 10px 12px; }
+  .mix-card small { color: var(--muted); display: block; margin-top: 4px; }
 
-.genres {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
+  .contact-box { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 18px; }
+  .contact-item { display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; }
+  .contact-item strong { color: #fff; }
 
-section#mixes .card {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: flex-start;
-}
+  footer { text-align: center; color: var(--muted); padding: 18px 0 28px; font-size: .95rem; }
 
-section#mixes .card h2, section#mixes .card p {
-    flex-basis: 100%;
-    text-align: center;
-}
+  @media (max-width: 980px) {
+    .hero-card, .grid-2, .contact-box { grid-template-columns: 1fr; }
+    .grid-3, .mix-grid { grid-template-columns: 1fr 1fr; }
+  }
 
-.video-wrapper {
-    flex: 1 1 300px;
-    margin: 10px;
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-}
-
-.video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-footer{
-    text-align:center;
-    padding:20px;
-    background:#000;
-    color:#bbb;
-    border-top: 2px solid #FFD700;
-}
+  @media (max-width: 760px) {
+    nav { justify-content: flex-start; }
+    .topbar-inner { align-items: flex-start; flex-direction: column; }
+    .stats, .grid-3, .mix-grid, .video-grid { grid-template-columns: 1fr; }
+    h1 { font-size: 2rem; }
+  }
 </style>
-
 </head>
-
 <body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#top">
+        <img src="Images/logo.png" alt="DJ Benji logo">
+        <span>
+          <strong>DJ BENJI</strong>
+          <small>LYRICAL DOCTOR • Nairobi</small>
+        </span>
+      </a>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#events">Events</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#mixes">Mixes</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<header>
-<img src="Images/logo.png" alt="DJ Benji Logo" class="logo">
-<h1>DJ BENJI</h1>
-<p>Versatile Event & Party DJ | Nairobi, Kenya</p>
-</header>
+  <main class="wrap" id="top">
+    <section class="hero">
+      <div class="hero-card">
+        <article class="panel">
+          <p class="eyebrow">GEN Z Favourite</p>
+          <h1>High-energy DJ sets for city nights, private events, and brand experiences.</h1>
+          <p class="lead">I craft playlists and live transitions that connect modern urban audiences with an authentic Nairobi pulse — from rooftop lounges to packed dance floors.</p>
+          <div class="pill-row">
+            <span class="pill">Amapiano</span>
+            <span class="pill">Afrobeats</span>
+            <span class="pill">Hip-Hop</span>
+            <span class="pill">House</span>
+            <span class="pill">Gengetone</span>
+          </div>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="mailto:benjaminwjuma@gmail.com">Book a set</a>
+            <a class="btn btn-secondary" href="#gallery">See the vibe</a>
+          </div>
+          <div class="stats">
+            <div class="stat"><strong>3+</strong><span>Years on stage</span></div>
+            <div class="stat"><strong>40+</strong><span>Events curated</span></div>
+            <div class="stat"><strong>10+</strong><span>Venues powered</span></div>
+          </div>
+        </article>
 
-<nav>
-<a href="#about">About</a>
-<a href="#experience">Experience</a>
-<a href="#events">Featured Events</a>
-<a href="#gallery">Gallery</a>
-<a href="#mixes">Mixes</a>
-<a href="#contact">Contact</a>
-</nav>
+        <aside class="panel mini-card">
+          <div class="box">
+            <h3>Why brands and hosts choose me</h3>
+            <p>Clean crowd reading, smooth genre flow, and a polished presence that fits both intimate gatherings and high-profile urban events.</p>
+          </div>
+          <div class="box">
+            <h3>What I deliver</h3>
+            <p>Live DJ performance, curated mood control, event pacing, and an energetic soundtrack tailored to your audience.</p>
+          </div>
+          <div class="box">
+            <h3>Best for</h3>
+            <p>Birthday nights, campus socials, private parties, rooftop events, and urban brand activations.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
 
-<div class="breadcrumb">
-<a href="#home">Home</a>
-<span>/</span>
-<a href="#about">About</a>
-<span>/</span>
-<a href="#experience">Experience</a>
-</div>
+    <section id="about" class="grid-2">
+      <article class="card">
+        <h2>About me</h2>
+        <p>I am a modern DJ with a strong ear for crowd energy and a flexible sound that moves from deep grooves to explosive moments. My style blends Nairobi energy with global urban trends, creating a soundtrack that feels fresh, stylish, and memorable.</p>
+      </article>
+      <article class="card">
+        <h2>Core strengths</h2>
+        <ul>
+          <li>Live crowd engagement and set control</li>
+          <li>Seamless transitions across Afro, Amapiano, Hip-Hop, and Dancehall</li>
+          <li>Professional presentation for private and commercial events</li>
+        </ul>
+      </article>
+    </section>
 
-<section id="about">
-<div class="card">
-<h2>About Me</h2>
-<p>
-I am a new-generation DJ with 3 years of experience performing at events and parties.
-I specialize in reading the crowd and creating energetic atmospheres with smooth
-transitions between genres.
-</p>
-</div>
-</section>
+    <section id="experience" class="grid-2">
+      <article class="card">
+        <h2>Experience</h2>
+        <ul>
+          <li>3 years of live DJ performance for parties and events</li>
+          <li>Strong experience at campus and community-driven nightlife occasions</li>
+          <li>Consistent delivery for energetic, high-attendance crowds</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>Featured events</h2>
+        <ul>
+          <li>Freshers Night EASA 2020</li>
+          <li>Airwave Experience 2021–2023</li>
+          <li>Resident DJ at Backyard Embakassi 2021–2023</li>
+        </ul>
+      </article>
+    </section>
 
-<section id="experience">
-<div class="card">
-<h2>Experience</h2>
-<ul>
-<li>3 Years Event & Party DJ Experience</li>
-<li>Campus Events and Social Gatherings</li>
-<li>DJ Experience</li>
-<li>Crowd engagement and music curation</li>
-</ul>
-</div>
-</section>
+    <section id="gallery" class="card">
+      <h2>Event gallery</h2>
+      <p>Quick highlights from live sets and event energy.</p>
+      <div class="video-grid">
+        <div class="video-frame"><video controls playsinline><source src="Images/Benji-3.mp4" type="video/mp4"></video></div>
+        <div class="video-frame"><video controls playsinline><source src="Images/Benji-1.mp4" type="video/mp4"></video></div>
+        <div class="video-frame"><video controls playsinline><source src="Images/Benji-2.mp4" type="video/mp4"></video></div>
+      </div>
+    </section>
 
-<section id="events">
-<div class="card">
-<h2>Featured Events</h2>
-<p>Here are some of the featured events I've DJ'd for:</p>
-<ul>
-<li><strong>Freshers nite EASA 2020:</strong> Energetic night with a mix of Afrobeats and Hip Hop.</li>
-<li><strong>Airwave Experience 2021:</strong> Smooth transitions between genres for a memorable celebration.</li>
-<li><strong>Airwave Experience 2022:</strong> Professional setup with curated playlists.</li>
-<li><strong>Airwave Experience 2023:</strong> Engaging the crowd with a blend of Amapiano and Gengetone.</li>
-<li><strong>Resident DJ at Backyard Embakassi 2021-2023:</strong> Consistent presence at the venue, delivering high-energy performances.</li>
-</ul>
-</div>
-</section>
+    <section id="mixes" class="card">
+      <h2>Sample mixes</h2>
+      <p>Curated clips and live mixes for your next urban event.</p>
+      <div class="mix-grid">
+        <article class="mix-card"><a href="https://www.youtube.com/watch?v=N1Euv764hME" target="_blank" rel="noopener noreferrer"><img src="https://img.youtube.com/vi/N1Euv764hME/hqdefault.jpg" alt="DJ Benji Mix 1"><small>High-energy mix</small></a></article>
+        <article class="mix-card"><a href="https://www.youtube.com/watch?v=-NmrZR3TGso" target="_blank" rel="noopener noreferrer"><img src="https://img.youtube.com/vi/-NmrZR3TGso/hqdefault.jpg" alt="DJ Benji Mix 2"><small>Urban crowd set</small></a></article>
+        <article class="mix-card"><a href="https://www.youtube.com/watch?v=VKoLiXhlHNE" target="_blank" rel="noopener noreferrer"><img src="https://img.youtube.com/vi/VKoLiXhlHNE/hqdefault.jpg" alt="DJ Benji Mix 3"><small>Afro-house blend</small></a></article>
+        <article class="mix-card"><a href="https://www.youtube.com/watch?v=nP5pxPebWew" target="_blank" rel="noopener noreferrer"><img src="https://img.youtube.com/vi/nP5pxPebWew/hqdefault.jpg" alt="DJ Benji Mix 4"><small>Street energy set</small></a></article>
+      </div>
+    </section>
 
-<section id="gallery">
-<div class="card">
-<h2>Event Gallery</h2>
-<p>Check out some highlights from my recent DJ performances and events.</p>
+    <section id="contact" class="contact-box">
+      <article class="card">
+        <h2>Book DJ Benji</h2>
+        <p>Ready to bring a polished urban sound to your next night out? I’m available for private bookings, club nights, and event activations.</p>
+      </article>
+      <article class="card">
+        <div class="contact-item"><strong>Email</strong><span>benjaminwjuma@gmail.com</span></div>
+        <div class="contact-item"><strong>Phone</strong><span>+254 799 594 521</span></div>
+        <div class="contact-item"><strong>Location</strong><span>Nairobi, Kenya</span></div>
+        <div class="cta-row"><a class="btn btn-primary" href="mailto:benjaminwjuma@gmail.com">Start your booking</a></div>
+      </article>
+    </section>
+  </main>
 
-<div class="video-gallery">
-<video class="video-small" controls>
-  <source src="Images/Benji-3.mp4" type="video/mp4">
-</video>
-
-<video class="video-small" controls>
-  <source src="Images/Benji-1.mp4" type="video/mp4">
-</video>
-</div>
-
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-</div>
-</section>
-
-<section id="genres">
-<div class="card">
-<h2>Genres I Play</h2>
-<div class="genres">
-<span>Amapiano</span>
-<span>Afrobeats</span>
-<span>Hip Hop</span>
-<span>Dancehall</span>
-<span>Gengetone</span>
-<span>House</span>
-<span>Throwbacks</span>
-</div>
-</div>
-</section>
-
-<section id="mixes">
-<div class="card">
-<h2>Sample Mixes</h2>
-<p>YouTube Videos:</p>
-
-<div class="video-wrapper">
-<iframe src="https://www.youtube.com/embed/N1Euv764hME" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
-
-<div class="video-wrapper">
-<iframe src="https://www.youtube.com/embed/-NmrZR3TGso" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
-
-<div class="video-wrapper">
-<iframe src="https://www.youtube.com/embed/VKoLiXhlHNE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
-</div>
-</section>
-
-<section id="contact">
-<div class="card">
-<h2>Contact / Bookings</h2>
-<p>Email: benjaminwjuma@gmail.com</p>
-<p>Phone: +254 799 594 521</p>
-<p>Location: Nairobi, Kenya</p>
-</div>
-</section>
-
-<footer>
-<p>© 2026 DJ BENJI | All Rights Reserved</p>
-</footer>
-
+  <footer>© 2026 DJ BENJI | Modern urban portfolio</footer>
 </body>
 </html>
