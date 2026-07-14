@@ -19,6 +19,8 @@ body {
     linear-gradient(135deg, #020406 0%, #07111d 45%, #04070b 100%);
   min-height: 100vh;
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 a { color: inherit; }
@@ -74,6 +76,9 @@ nav a {
   background: rgba(255,255,255,0.03);
   border: 1px solid transparent;
   transition: 0.2s ease;
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
 }
 
 nav a:hover {
@@ -121,11 +126,7 @@ nav a:hover {
   z-index: 2;
   padding: clamp(2rem, 4vw, 3.5rem) 0;
   max-width: 780px;
-}
-
-.eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.28em;
+  width: min(100%, 780px);
   font-size: 0.78rem;
   color: var(--gold);
   margin: 0 0 12px;
@@ -181,6 +182,7 @@ nav a:hover {
   text-decoration: none;
   font-weight: 700;
   border: 1px solid transparent;
+  min-height: 44px;
 }
 
 .btn-primary {
@@ -261,11 +263,67 @@ footer {
 }
 
 @media (max-width: 760px) {
-  .topbar-inner { align-items: flex-start; flex-direction: column; }
-  nav { justify-content: flex-start; }
-  .hero-banner { min-height: 60vh; }
-  .hero-banner h1 { font-size: 2rem; }
-  .stats, .grid-3, .mix-grid, .video-grid { grid-template-columns: 1fr; }
+  .topbar-inner {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 12px 0 10px;
+  }
+  nav {
+    justify-content: flex-start;
+    gap: 6px;
+  }
+  nav a {
+    padding: 8px 10px;
+    font-size: 0.95rem;
+  }
+  .hero-banner {
+    min-height: 58vh;
+    max-height: none;
+  }
+  .hero-banner__content {
+    padding: 1.4rem 0 2rem;
+  }
+  .hero-banner h1 {
+    font-size: 1.85rem;
+    line-height: 1.12;
+  }
+  .lead {
+    font-size: 0.98rem;
+  }
+  .cta-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .btn {
+    width: 100%;
+  }
+  .pill-row {
+    gap: 6px;
+  }
+  .pill {
+    font-size: 0.9rem;
+    padding: 7px 10px;
+  }
+  .card {
+    padding: 16px;
+  }
+  .grid-3, .mix-grid, .video-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .wrap {
+    width: min(100% - 20px, 1200px);
+  }
+  .topbar-inner {
+    width: min(100% - 20px, 1200px);
+  }
+  .brand img { width: 44px; }
+  .hero-banner { min-height: 56vh; }
+  .hero-banner h1 { font-size: 1.6rem; }
+  .hero-banner__content { padding: 1.1rem 0 1.6rem; }
+  .lead { font-size: 0.95rem; }
+  nav a { font-size: 0.9rem; }
+  footer { font-size: 0.9rem; padding: 16px 0 24px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
