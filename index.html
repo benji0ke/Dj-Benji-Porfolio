@@ -129,6 +129,7 @@
   .mix-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
   .mix-card { background: rgba(255,255,255,0.04); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
   .mix-card img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+  .mix-card iframe { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; background: #000; }
   .mix-card a { display: block; color: #fff; text-decoration: none; padding: 10px 12px; }
   .mix-card small { color: var(--muted); display: block; margin-top: 4px; }
 
@@ -265,10 +266,13 @@
       <h2>Sample mixes</h2>
       <p>Curated clips and live mixes for your next urban event.</p>
       <div class="mix-grid">
+        <article class="mix-card">
+          <iframe src="https://www.youtube.com/embed/b0zarlhUq4g?si=i4foAUpZzbVNCceq" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <a href="https://www.youtube.com/watch?v=b0zarlhUq4g" target="_blank" rel="noopener noreferrer"><small>Featured mix</small></a>
+        </article>
         <article class="mix-card"><a href="https://www.youtube.com/watch?v=N1Euv764hME" target="_blank" rel="noopener noreferrer"><img src="https://img.youtube.com/vi/N1Euv764hME/hqdefault.jpg" alt="DJ Benji Mix 1"><small>High-energy mix</small></a></article>
         <article class="mix-card"><a href="https://www.youtube.com/watch?v=-NmrZR3TGso" target="_blank" rel="noopener noreferrer"><img src="https://img.youtube.com/vi/-NmrZR3TGso/hqdefault.jpg" alt="DJ Benji Mix 2"><small>Urban crowd set</small></a></article>
         <article class="mix-card"><a href="https://www.youtube.com/watch?v=VKoLiXhlHNE" target="_blank" rel="noopener noreferrer"><img src="https://img.youtube.com/vi/VKoLiXhlHNE/hqdefault.jpg" alt="DJ Benji Mix 3"><small>Afro-house blend</small></a></article>
-        <article class="mix-card"><a href="https://www.youtube.com/watch?v=nP5pxPebWew" target="_blank" rel="noopener noreferrer"><img src="https://img.youtube.com/vi/nP5pxPebWew/hqdefault.jpg" alt="DJ Benji Mix 4"><small>Street energy set</small></a></article>
       </div>
     </section>
 
