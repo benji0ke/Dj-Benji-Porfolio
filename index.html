@@ -4,171 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DJ Benji | Urban Sound Portfolio</title>
-<style>
-  :root {
-    --bg: #05070b;
-    --panel: rgba(10, 14, 22, 0.88);
-    --panel-2: rgba(17, 23, 35, 0.95);
-    --line: rgba(255, 215, 0, 0.25);
-    --gold: #ffd54a;
-    --text: #f4f7fb;
-    --muted: #cdd6e4;
-  }
-
-  * { box-sizing: border-box; }
-
-  body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    color: var(--text);
-    background:
-      radial-gradient(circle at top, rgba(255, 213, 74, 0.08), transparent 22%),
-      linear-gradient(135deg, #020406 0%, #07111d 45%, #04070b 100%);
-    min-height: 100vh;
-  }
-
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.55)),
-      url('Images/benji.png') center/cover no-repeat;
-    opacity: 0.14;
-    filter: saturate(1.1) blur(1px);
-    z-index: -2;
-  }
-
-  body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: linear-gradient(120deg, rgba(255,255,255,0.02), transparent 30%, rgba(255,255,255,0.03));
-    pointer-events: none;
-    z-index: -1;
-  }
-
-  .topbar {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    backdrop-filter: blur(12px);
-    background: rgba(3, 6, 10, 0.82);
-    border-bottom: 1px solid var(--line);
-  }
-
-  .topbar-inner, .wrap { width: min(1200px, calc(100% - 24px)); margin: 0 auto; }
-
-  .topbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 0; }
-
-  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); }
-  .brand img { width: 52px; border-radius: 12px; }
-  .brand strong { display: block; font-size: 1rem; color: var(--gold); }
-  .brand small { color: var(--muted); font-size: 0.85rem; }
-
-  nav { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
-  nav a {
-    text-decoration: none; color: var(--text); padding: 10px 12px; border-radius: 999px;
-    background: rgba(255,255,255,0.03); border: 1px solid transparent; transition: 0.2s;
-  }
-  nav a:hover { background: rgba(255, 213, 74, 0.08); border-color: var(--line); color: var(--gold); }
-
-  .hero {
-    position: relative;
-    min-height: 100svh;
-    padding: 36px 0 14px;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-  }
-
-  .hero-image {
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(180deg, rgba(0,0,0,0.20) 0%, rgba(0,0,0,0.72) 100%),
-      url('Images/benji.png') center/cover no-repeat;
-    transform: scale(1.02);
-    will-change: opacity, transform;
-    z-index: 0;
-  }
-
-  .hero-card {
-    position: relative;
-    z-index: 1;
-    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 18px; align-items: stretch;
-  }
-
-  .panel {
-    background: linear-gradient(180deg, rgba(8, 12, 20, 0.96), rgba(12, 17, 28, 0.92));
-    border: 1px solid var(--line); border-radius: 24px; padding: 22px; box-shadow: 0 18px 40px rgba(0,0,0,0.35);
-  }
-
-  .eyebrow { text-transform: uppercase; letter-spacing: .28em; font-size: .78rem; color: var(--gold); }
-  h1 { font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.02; margin: 10px 0 14px; }
-  .lead { color: var(--muted); font-size: 1.03rem; line-height: 1.6; }
-
-  .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
-  .pill { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); border-radius: 999px; padding: 8px 10px; background: rgba(255,255,255,0.03); color: var(--text); font-size: .95rem; }
-
-  .cta-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
-  .btn {
-    display: inline-flex; align-items: center; justify-content: center; padding: 11px 14px; border-radius: 12px;
-    text-decoration: none; font-weight: 700; border: 1px solid transparent;
-  }
-  .btn-primary { background: linear-gradient(135deg, #ffde70, #e0af00); color: #111; }
-  .btn-secondary { background: rgba(255,255,255,0.03); color: var(--text); border-color: var(--line); }
-
-  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
-  .stat { background: rgba(255,255,255,0.04); border: 1px solid var(--line); border-radius: 18px; padding: 12px; }
-  .stat strong { display: block; color: var(--gold); font-size: 1.2rem; }
-  .stat span { color: var(--muted); font-size: .92rem; }
-
-  .mini-card { display: grid; gap: 10px; }
-  .mini-card .box { background: rgba(255,255,255,0.04); border: 1px solid var(--line); border-radius: 18px; padding: 12px; }
-  .mini-card h3 { margin: 0 0 6px; font-size: 1rem; color: #fff; }
-  .mini-card p { margin: 0; color: var(--muted); font-size: .95rem; line-height: 1.45; }
-
-  main { padding-bottom: 30px; }
-  section { padding: 12px 0; }
-  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-
-  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 22px; padding: 18px; box-shadow: 0 14px 35px rgba(0,0,0,0.28); }
-  .card h2 { margin-top: 0; color: var(--gold); font-size: 1.35rem; }
-  .card p, .card li { color: var(--muted); line-height: 1.55; }
-  .card ul { padding-left: 18px; margin: 0; }
-
-  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
-  .chip { display: inline-block; background: rgba(255, 213, 74, 0.12); color: #fff7d8; border: 1px solid rgba(255, 213, 74, 0.25); border-radius: 999px; padding: 8px 10px; font-size: .95rem; }
-
-  .video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-  .video-frame video { width: 100%; border-radius: 16px; border: 1px solid var(--line); background: #000; }
-
-  .mix-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-  .mix-card { background: rgba(255,255,255,0.04); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
-  .mix-card img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
-  .mix-card iframe { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; background: #000; }
-  .mix-card a { display: block; color: #fff; text-decoration: none; padding: 10px 12px; }
-  .mix-card small { color: var(--muted); display: block; margin-top: 4px; }
-
-  .contact-box { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 18px; }
-  .contact-item { display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; }
-  .contact-item strong { color: #fff; }
-
-  footer { text-align: center; color: var(--muted); padding: 18px 0 28px; font-size: .95rem; }
-
-  @media (max-width: 980px) {
-    .hero-card, .grid-2, .contact-box { grid-template-columns: 1fr; }
-    .grid-3, .mix-grid { grid-template-columns: 1fr 1fr; }
-  }
-
-  @media (max-width: 760px) {
-    nav { justify-content: flex-start; }
-    .topbar-inner { align-items: flex-start; flex-direction: column; }
-    .stats, .grid-3, .mix-grid, .video-grid { grid-template-columns: 1fr; }
-    h1 { font-size: 2rem; }
-  }
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="topbar">
@@ -191,49 +27,28 @@
     </div>
   </header>
 
-  <main class="wrap" id="top">
-    <section class="hero" id="hero">
-      <div class="hero-image" aria-hidden="true"></div>
-      <div class="hero-card">
-        <article class="panel">
-          <p class="eyebrow">GEN Z Favourite</p>
-          <h1>High-energy DJ sets for city nights, private events, and brand experiences.</h1>
-          <p class="lead">I craft playlists and live transitions that connect modern urban audiences with an authentic Nairobi pulse — from rooftop lounges to packed dance floors.</p>
-          <div class="pill-row">
-            <span class="pill">Amapiano</span>
-            <span class="pill">Afrobeats</span>
-            <span class="pill">Hip-Hop</span>
-            <span class="pill">House</span>
-            <span class="pill">Gengetone</span>
-          </div>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="mailto:airwave254@outlook.com">Book a set</a>
-            <a class="btn btn-secondary" href="#gallery">See the vibe</a>
-          </div>
-          <div class="stats">
-            <div class="stat"><strong>3+</strong><span>Years on stage</span></div>
-            <div class="stat"><strong>40+</strong><span>Events curated</span></div>
-            <div class="stat"><strong>10+</strong><span>Venues powered</span></div>
-          </div>
-        </article>
-
-        <aside class="panel mini-card">
-          <div class="box">
-            <h3>Why brands and hosts choose me</h3>
-            <p>Clean crowd reading, smooth genre flow, and a polished presence that fits both intimate gatherings and high-profile urban events.</p>
-          </div>
-          <div class="box">
-            <h3>What I deliver</h3>
-            <p>Live DJ performance, curated mood control, event pacing, and an energetic soundtrack tailored to your audience.</p>
-          </div>
-          <div class="box">
-            <h3>Best for</h3>
-            <p>Birthday nights, campus socials, private parties, rooftop events, and urban brand activations.</p>
-          </div>
-        </aside>
+  <section class="hero-banner" id="top">
+    <div class="hero-banner__image" aria-hidden="true"></div>
+    <div class="hero-banner__overlay" aria-hidden="true"></div>
+    <div class="wrap hero-banner__content">
+      <p class="eyebrow">GEN Z Favourite</p>
+      <h1>High-energy DJ sets for city nights, private events, and brand experiences.</h1>
+      <p class="lead">I craft playlists and live transitions that connect modern urban audiences with an authentic Nairobi pulse — from rooftop lounges to packed dance floors.</p>
+      <div class="pill-row">
+        <span class="pill">Amapiano</span>
+        <span class="pill">Afrobeats</span>
+        <span class="pill">Hip-Hop</span>
+        <span class="pill">House</span>
+        <span class="pill">Gengetone</span>
       </div>
-    </section>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:airwave254@outlook.com">Book a set</a>
+        <a class="btn btn-secondary" href="#gallery">See the vibe</a>
+      </div>
+    </div>
+  </section>
 
+  <main class="wrap">
     <section id="about" class="grid-2">
       <article class="card">
         <h2>About me</h2>
@@ -313,23 +128,6 @@
   </main>
 
   <footer>© 2026 DJ BENJI | Portfolio</footer>
-
-  <script>
-    const hero = document.querySelector('.hero');
-    const heroImage = document.querySelector('.hero-image');
-
-    if (hero && heroImage) {
-      const updateHeroFade = () => {
-        const distance = Math.min(window.innerHeight * 0.75, 700);
-        const opacity = Math.max(0, 1 - window.scrollY / distance);
-        heroImage.style.opacity = opacity;
-        heroImage.style.transform = `scale(${1 + (1 - opacity) * 0.03})`;
-      };
-
-      updateHeroFade();
-      window.addEventListener('scroll', updateHeroFade, { passive: true });
-      window.addEventListener('resize', updateHeroFade);
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
