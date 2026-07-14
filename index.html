@@ -73,10 +73,28 @@
   nav a:hover { background: rgba(255, 213, 74, 0.08); border-color: var(--line); color: var(--gold); }
 
   .hero {
+    position: relative;
+    min-height: 100svh;
     padding: 36px 0 14px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(0,0,0,0.20) 0%, rgba(0,0,0,0.72) 100%),
+      url('Images/benji.png') center/cover no-repeat;
+    transform: scale(1.02);
+    will-change: opacity, transform;
+    z-index: 0;
   }
 
   .hero-card {
+    position: relative;
+    z-index: 1;
     display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 18px; align-items: stretch;
   }
 
@@ -174,7 +192,8 @@
   </header>
 
   <main class="wrap" id="top">
-    <section class="hero">
+    <section class="hero" id="hero">
+      <div class="hero-image" aria-hidden="true"></div>
       <div class="hero-card">
         <article class="panel">
           <p class="eyebrow">GEN Z Favourite</p>
@@ -294,5 +313,23 @@
   </main>
 
   <footer>© 2026 DJ BENJI | Portfolio</footer>
+
+  <script>
+    const hero = document.querySelector('.hero');
+    const heroImage = document.querySelector('.hero-image');
+
+    if (hero && heroImage) {
+      const updateHeroFade = () => {
+        const distance = Math.min(window.innerHeight * 0.75, 700);
+        const opacity = Math.max(0, 1 - window.scrollY / distance);
+        heroImage.style.opacity = opacity;
+        heroImage.style.transform = `scale(${1 + (1 - opacity) * 0.03})`;
+      };
+
+      updateHeroFade();
+      window.addEventListener('scroll', updateHeroFade, { passive: true });
+      window.addEventListener('resize', updateHeroFade);
+    }
+  </script>
 </body>
 </html>
