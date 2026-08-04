@@ -96,20 +96,43 @@
       </div>
     </section>
 
-    <section id="mixes" class="card">
-      <h2>Sample mixes</h2>
-      <p>Curated clips and live mixes for your next urban event.</p>
-      <div class="mix-grid">
-        <article class="mix-card">
-          <iframe src="https://www.youtube.com/embed/b0zarlhUq4g?si=i4foAUpZzbVNCceq" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          <a href="https://www.youtube.com/watch?v=b0zarlhUq4g" target="_blank" rel="noopener noreferrer"><small>Kenyan OldSchool</small></a>
-        </article>
-        <article class="mix-card">
-          <iframe src="https://www.youtube.com/embed/NNVThkEjCfc?si=fZOSXonMpsV4KE4i" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          <a href="https://www.youtube.com/watch?v=NNVThkEjCfc" target="_blank" rel="noopener noreferrer"><small>UGANDAN MIX</small></a>
-        </article>
-        <article class="mix-card"><a href="https://www.youtube.com/watch?v=N1Euv764hME" target="_blank" rel="noopener noreferrer"><img src="https://img.youtube.com/vi/N1Euv764hME/hqdefault.jpg" alt="DJ Benji Mix 1"><small>Strictly Kenyan</small></a></article>
-        <article class="mix-card"><a href="https://www.youtube.com/watch?v=-NmrZR3TGso" target="_blank" rel="noopener noreferrer"><img src="https://img.youtube.com/vi/-NmrZR3TGso/hqdefault.jpg" alt="DJ Benji Mix 2"><small>Afro-house blend</small></a></article>
+    <section id="mixes" class="card latest-uploads-section">
+      <div class="latest-uploads-header">
+        <div>
+          <h2>Latest Uploads</h2>
+          <p>Listen to the newest DJ BENJI mixes and videos.</p>
+        </div>
+      </div>
+
+      <div class="latest-uploads-toolbar" aria-label="Latest uploads controls">
+        <label class="uploads-search">
+          <span class="visually-hidden">Search uploads</span>
+          <input id="uploadsSearch" type="search" placeholder="Search videos" aria-label="Search latest uploads by title">
+        </label>
+        <div class="uploads-category-filters" role="group" aria-label="Upload categories">
+          <button type="button" class="upload-filter-btn is-active" data-category="All" aria-pressed="true">All</button>
+          <button type="button" class="upload-filter-btn" data-category="Club Bangers" aria-pressed="false">Club Bangers</button>
+          <button type="button" class="upload-filter-btn" data-category="Old School" aria-pressed="false">Old School</button>
+          <button type="button" class="upload-filter-btn" data-category="Amapiano" aria-pressed="false">Amapiano</button>
+          <button type="button" class="upload-filter-btn" data-category="Gengetone" aria-pressed="false">Gengetone</button>
+          <button type="button" class="upload-filter-btn" data-category="Afro Mixes" aria-pressed="false">Afro Mixes</button>
+        </div>
+      </div>
+
+      <div class="uploads-grid" id="uploadsGrid" aria-live="polite"></div>
+
+      <div class="uploads-actions">
+        <button type="button" class="btn btn-secondary load-more-btn" id="loadMoreBtn" hidden>Load More</button>
+      </div>
+
+      <div class="uploads-modal" id="videoModal" hidden>
+        <div class="uploads-modal__backdrop" data-close-modal="true"></div>
+        <div class="uploads-modal__dialog" role="dialog" aria-modal="true" aria-label="Video player modal">
+          <button type="button" class="uploads-modal__close" id="closeModalBtn" aria-label="Close video modal">×</button>
+          <div class="uploads-modal__frame-wrap">
+            <iframe id="modalIframe" src="" title="Selected DJ BENJI upload" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
       </div>
     </section>
 
