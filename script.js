@@ -32,184 +32,56 @@ if (heroBanner && heroImage) {
 }
 
 // Latest Uploads showcase
-const uploadSamples = [
+const YOUTUBE_API_KEY = 'AIzaSyDTzmqlvwrIEZ3ahg9NF8mggCAeIWAmfPs';
+const YOUTUBE_CHANNEL_HANDLE = '@Airwave254';
+
+const FALLBACK_UPLOADS = [
   {
     id: 'b0zarlhUq4g',
-    title: 'Midnight City Rush',
-    category: 'Club Bangers',
+    title: 'Kenyan OldSchool',
+    category: 'Old School',
     date: '2026-08-03',
     views: '128K',
-    description: 'A high-tempo club route packed with magnetic drops, early-morning energy, and deep bass pressure.',
+    description: 'A polished throwback mix with strong club pacing and a smooth old-school Nairobi feel.',
     duration: '12:47',
-    isNew: false,
+    isNew: true,
     thumbnail: 'https://img.youtube.com/vi/b0zarlhUq4g/hqdefault.jpg'
   },
   {
     id: 'NNVThkEjCfc',
-    title: 'Boda Boda Anthems',
-    category: 'Gengetone',
+    title: 'UGANDAN MIX',
+    category: 'Afro Mixes',
     date: '2026-08-01',
     views: '74K',
-    description: 'Quick-fire rhythms and playful crowd chants that keep the city dance floor bouncing through every transition.',
+    description: 'A crisp regional blend built around melodic continuity and a steady late-night groove.',
     duration: '10:02',
     isNew: false,
     thumbnail: 'https://img.youtube.com/vi/NNVThkEjCfc/hqdefault.jpg'
   },
   {
     id: 'N1Euv764hME',
-    title: 'Amapiano Rooftop Session',
-    category: 'Amapiano',
+    title: 'Strictly Kenyan',
+    category: 'Club Bangers',
     date: '2026-07-29',
     views: '96K',
-    description: 'A polished sunset set built around smooth log drums, velvet bass lines, and a rooftop-ready groove.',
+    description: 'A street-ready Kenyan shuffle with clean transitions, crowd-friendly energy, and a bold finish.',
     duration: '14:36',
-    isNew: true,
+    isNew: false,
     thumbnail: 'https://img.youtube.com/vi/N1Euv764hME/hqdefault.jpg'
   },
   {
     id: '-NmrZR3TGso',
-    title: 'Classic Nairobi Drive',
-    category: 'Old School',
+    title: 'Afro-house blend',
+    category: 'Amapiano',
     date: '2026-07-25',
     views: '53K',
-    description: 'Dusty tape-era textures, familiar hooks, and a nostalgic spin that still lands at full volume.',
+    description: 'Warm chords, precise beat placement, and a smooth listening structure for the evening crowd.',
     duration: '09:11',
     isNew: false,
     thumbnail: 'https://img.youtube.com/vi/-NmrZR3TGso/hqdefault.jpg'
-  },
-  {
-    id: 'QH2-TGUlwu4',
-    title: 'Sunset Afro Pulse',
-    category: 'Afro Mixes',
-    date: '2026-07-22',
-    views: '46K',
-    description: 'Lush percussion and melodic hooks shape a warm, polished Afro-house blend with a stylish finish.',
-    duration: '11:43',
-    isNew: false,
-    thumbnail: 'https://img.youtube.com/vi/QH2-TGUlwu4/hqdefault.jpg'
-  },
-  {
-    id: 'dQw4w9WgXcQ',
-    title: 'Weekend Heatwave',
-    category: 'Club Bangers',
-    date: '2026-07-17',
-    views: '68K',
-    description: 'A relentless club sequence balancing clean transitions with a strong, crowd-first build and release.',
-    duration: '16:08',
-    isNew: false,
-    thumbnail: 'https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg'
-  },
-  {
-    id: 'aqz-KE-bpKQ',
-    title: 'Old School Blend',
-    category: 'Old School',
-    date: '2026-07-10',
-    views: '61K',
-    description: 'A throwback listening session curated with punchy drums, familiar melodies, and careful phase control.',
-    duration: '08:58',
-    isNew: false,
-    thumbnail: 'https://img.youtube.com/vi/aqz-KE-bpKQ/hqdefault.jpg'
-  },
-  {
-    id: 'ysz5S6PUM-U',
-    title: 'Kibera to the Main Stage',
-    category: 'Gengetone',
-    date: '2026-07-06',
-    views: '44K',
-    description: 'Street-driven flair and crisp groove pacing put a downloaded club sensibility on a local soundboard.',
-    duration: '13:24',
-    isNew: false,
-    thumbnail: 'https://img.youtube.com/vi/ysz5S6PUM-U/hqdefault.jpg'
-  },
-  {
-    id: 'ScMzIvxBSi4',
-    title: 'House Floor Anthem',
-    category: 'Club Bangers',
-    date: '2026-06-28',
-    views: '81K',
-    description: 'This one is built for sustained energy, sharper transitions, and a fearless late-night crowd response.',
-    duration: '12:16',
-    isNew: false,
-    thumbnail: 'https://img.youtube.com/vi/ScMzIvxBSi4/hqdefault.jpg'
-  },
-  {
-    id: 'ysz5S6PUM-U',
-    title: 'Mile High Mash',
-    category: 'Amapiano',
-    date: '2026-06-21',
-    views: '39K',
-    description: 'A smooth vertical lift through deep rhythm pockets, mellow vocal snippets, and warm dance-floor release.',
-    duration: '10:31',
-    isNew: false,
-    thumbnail: 'https://img.youtube.com/vi/ysz5S6PUM-U/hqdefault.jpg'
-  },
-  {
-    id: 'M7lc1UVf-VE',
-    title: 'Nairobi After Dark',
-    category: 'Afro Mixes',
-    date: '2026-06-16',
-    views: '57K',
-    description: 'Late-night atmosphere and polished transitions take the set into a cinematic but still playful edge.',
-    duration: '15:09',
-    isNew: false,
-    thumbnail: 'https://img.youtube.com/vi/M7lc1UVf-VE/hqdefault.jpg'
-  },
-  {
-    id: 'fJ9rUzIMcZQ',
-    title: 'Soulful Friday',
-    category: 'Old School',
-    date: '2026-06-12',
-    views: '52K',
-    description: 'A mellow, deeply textured selection that charms the room while keeping the pulse alive all the way through.',
-    duration: '09:44',
-    isNew: false,
-    thumbnail: 'https://img.youtube.com/vi/fJ9rUzIMcZQ/hqdefault.jpg'
-  },
-  {
-    id: '5qap5aO4i9A',
-    title: 'Tropical House Bites',
-    category: 'Afro Mixes',
-    date: '2026-06-08',
-    views: '34K',
-    description: 'Sun-drenched rhythm and subtle vocal layering bring a softer edge to the night without losing momentum.',
-    duration: '07:36',
-    isNew: false,
-    thumbnail: 'https://img.youtube.com/vi/5qap5aO4i9A/hqdefault.jpg'
-  },
-  {
-    id: 'M7lc1UVf-VE',
-    title: 'Sauti Ya Mtaa',
-    category: 'Gengetone',
-    date: '2026-06-02',
-    views: '41K',
-    description: 'A sharp local groove shaped by strong vocal energy, crisp percussion, and a fast-moving club pulse.',
-    duration: '11:27',
-    isNew: false,
-    thumbnail: 'https://img.youtube.com/vi/M7lc1UVf-VE/hqdefault.jpg'
-  },
-  {
-    id: 'aqz-KE-bpKQ',
-    title: 'Golden Era Grooves',
-    category: 'Old School',
-    date: '2026-05-30',
-    views: '66K',
-    description: 'A polished revival set that leans into layered vocals, familiar textures, and smooth DJ timing.',
-    duration: '13:50',
-    isNew: false,
-    thumbnail: 'https://img.youtube.com/vi/aqz-KE-bpKQ/hqdefault.jpg'
-  },
-  {
-    id: 'ScMzIvxBSi4',
-    title: 'Mombasa Nights',
-    category: 'Club Bangers',
-    date: '2026-05-24',
-    views: '72K',
-    description: 'Coastal energy meets a smart club structure by mixing bright percussion with a firm late-night headliner feel.',
-    duration: '14:53',
-    isNew: false,
-    thumbnail: 'https://img.youtube.com/vi/ScMzIvxBSi4/hqdefault.jpg'
   }
 ];
+const EMBED_WHITELIST = new Set(['b0zarlhUq4g', 'NNVThkEjCfc', 'N1Euv764hME', '-NmrZR3TGso']);
 
 const uploadsSection = document.querySelector('.latest-uploads-section');
 
@@ -231,6 +103,37 @@ if (uploadsSection) {
   };
 
   const formatDate = (date) => new Date(date).toLocaleDateString('en', { month: 'short', day: 'numeric', year: 'numeric' });
+  const formatDuration = (duration) => {
+    const match = duration.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/i);
+    if (!match) return '0:00';
+
+    const hours = Number(match[1] || 0);
+    const mins = Number(match[2] || 0);
+    const secs = Number(match[3] || 0);
+
+    if (hours > 0) {
+      return `${hours}:${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+    }
+
+    return `${mins}:${String(secs).padStart(2, '0')}`;
+  };
+
+  const formatCount = (value) => {
+    if (!Number.isFinite(Number(value))) return value || '0';
+    return new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 }).format(Number(value));
+  };
+
+  const toUploadModel = (item) => ({
+    id: item.id,
+    title: item.title,
+    category: item.category || 'All',
+    date: item.date,
+    views: item.views || '0',
+    description: item.description || 'No description available for this upload yet.',
+    duration: item.duration || '0:00',
+    isNew: item.isNew || false,
+    thumbnail: item.thumbnail || 'https://placehold.co/640x360/0a0e16/ffd54a?text=DJ+BENJI'
+  });
 
   const renderSkeletons = (count = 8) => {
     uploadsGrid.innerHTML = Array.from({ length: count }, () => `
@@ -322,8 +225,13 @@ if (uploadsSection) {
   };
 
   const openModal = (videoId) => {
+    if (!EMBED_WHITELIST.has(videoId)) {
+      window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank', 'noopener,noreferrer');
+      return;
+    }
+
     modal.hidden = false;
-    modalFrame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    modalFrame.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
     document.body.classList.add('modal-open');
   };
 
@@ -333,9 +241,43 @@ if (uploadsSection) {
     document.body.classList.remove('modal-open');
   };
 
-  const loadVideos = () => new Promise((resolve) => {
-    window.setTimeout(() => resolve(uploadSamples), 500);
-  });
+  const loadVideos = async () => {
+    try {
+      const channelLookup = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=id,snippet&forHandle=${encodeURIComponent(YOUTUBE_CHANNEL_HANDLE)}&key=${YOUTUBE_API_KEY}`);
+      const channelData = await channelLookup.json();
+
+      if (!channelData.items || !channelData.items.length) {
+        throw new Error('No channel found for the provided handle.');
+      }
+
+      const channelId = channelData.items[0].id;
+      const searchUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&maxResults=20&order=date&type=video&videoEmbeddable=true&key=${YOUTUBE_API_KEY}`;
+      const searchResponse = await fetch(searchUrl);
+      const searchData = await searchResponse.json();
+
+      if (!searchData.items || !searchData.items.length) {
+        return FALLBACK_UPLOADS;
+      }
+
+      const ids = searchData.items.map((item) => item.id.videoId).filter(Boolean).join(',');
+      const videoLookup = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics,contentDetails&id=${encodeURIComponent(ids)}&key=${YOUTUBE_API_KEY}`);
+      const videoData = await videoLookup.json();
+
+      return (videoData.items || []).map((item) => ({
+        id: item.id,
+        title: item.snippet?.title || 'Untitled upload',
+        category: 'All',
+        date: item.snippet?.publishedAt || new Date().toISOString(),
+        views: formatCount(item.statistics?.viewCount),
+        description: item.snippet?.description || 'No description available for this upload yet.',
+        duration: formatDuration(item.contentDetails?.duration || 'PT0S'),
+        isNew: true,
+        thumbnail: item.snippet?.thumbnails?.high?.url || item.snippet?.thumbnails?.medium?.url || 'https://placehold.co/640x360/0a0e16/ffd54a?text=DJ+BENJI'
+      }));
+    } catch (error) {
+      return FALLBACK_UPLOADS;
+    }
+  };
 
   const init = async () => {
     renderSkeletons(8);
