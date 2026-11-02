@@ -216,6 +216,20 @@ section { padding: 12px 0; }
 .video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
 .video-frame video { width: 100%; border-radius: 16px; border: 1px solid var(--line); background: #000; }
 
+.event-gallery-section { scroll-margin-top: 24px; }
+.gallery-intro { color: var(--muted); line-height: 1.55; }
+.event-gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 18px; }
+.event-card { min-width: 0; overflow: hidden; }
+.event-card h3 { margin: 0 0 14px; color: var(--gold); font-size: 1.2rem; }
+.event-card > img, .aluta-flyer-grid img { display: block; width: 100%; max-height: 520px; object-fit: contain; border-radius: 16px; border: 1px solid var(--line); background: #000; }
+.event-card .video-grid { grid-template-columns: 1fr; margin-top: 14px; }
+.aluta-events { grid-column: 1 / -1; }
+.aluta-flyer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr)); gap: 14px; }
+.aluta-flyer-grid figure { min-width: 0; margin: 0; }
+.aluta-flyer-grid figcaption { padding-top: 8px; color: var(--muted); text-align: center; }
+.set-highlights { grid-column: 1 / -1; }
+.set-highlights > p { color: var(--muted); line-height: 1.55; }
+
 .mix-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
 .mix-card {
   background: rgba(255,255,255,0.04);
