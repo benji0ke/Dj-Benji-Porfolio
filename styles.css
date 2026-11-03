@@ -223,7 +223,7 @@ section { padding: 12px 0; }
   scroll-margin-top: 110px;
 }
 .profile-portrait { overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: #080b10; }
-.profile-portrait img { display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: 38% center; }
+.profile-portrait img { display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center; }
 .profile-content { min-width: 0; }
 .profile-intro { margin-bottom: 22px; }
 .profile-intro .eyebrow { margin: 0 0 6px; color: var(--gold); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
@@ -641,7 +641,7 @@ body.modal-open {
   .hero-banner { min-height: 64vh; }
   .grid-2, .contact-box { grid-template-columns: 1fr; }
   .profile-section { grid-template-columns: 1fr; }
-  .profile-portrait img { aspect-ratio: 16 / 9; max-height: 500px; object-position: center 38%; }
+  .profile-portrait img { aspect-ratio: 16 / 9; max-height: 500px; object-position: center; }
   .grid-3, .mix-grid { grid-template-columns: 1fr 1fr; }
   .uploads-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
