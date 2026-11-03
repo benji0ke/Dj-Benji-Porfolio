@@ -81,8 +81,6 @@ const FALLBACK_UPLOADS = [
     thumbnail: 'https://img.youtube.com/vi/-NmrZR3TGso/hqdefault.jpg'
   }
 ];
-const EMBED_WHITELIST = new Set(['b0zarlhUq4g', 'NNVThkEjCfc', 'N1Euv764hME', '-NmrZR3TGso']);
-
 const uploadsSection = document.querySelector('.latest-uploads-section');
 
 if (uploadsSection) {
@@ -225,11 +223,6 @@ if (uploadsSection) {
   };
 
   const openModal = (videoId) => {
-    if (!EMBED_WHITELIST.has(videoId)) {
-      window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank', 'noopener,noreferrer');
-      return;
-    }
-
     modal.hidden = false;
     modalFrame.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
     document.body.classList.add('modal-open');
